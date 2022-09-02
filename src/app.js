@@ -1,8 +1,11 @@
 import config from "./config.js";
+import loader from "./loader.js";
 import express from "express";
 
 async function start () {
     const app = express();
+
+    await loader({ app });
 
     app.get("/", (req, res) => {
         res.send("Hello World!");
