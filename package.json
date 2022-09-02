@@ -1,0 +1,20 @@
+{
+  "name": "good-api",
+  "version": "1.0.0",
+  "description": "A good API",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Roz",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
