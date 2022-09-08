@@ -4,7 +4,6 @@ import expressLoader from "./express";
 import logger from "./logger";
 
 export default async ({ app }) => {
-
     await diLoader();
     logger.info("Dependency injector loaded");
 

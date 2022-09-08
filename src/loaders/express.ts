@@ -1,4 +1,5 @@
 import express from "express";
+import routes from "../api";
 
 export default ({ app }) => {
 
@@ -13,10 +14,8 @@ export default ({ app }) => {
     // transform body into json obj
     app.use(express.json());
 
-    // this is where we'll put routes later
-    app.get("/hello", (req, res) => {
-        res.send("\nHello World!\n");
-    });
+    // load in routes
+    app.use("/", routes());
 
     // catch anything that wasn't found
     app.use((req, res, next) => {
