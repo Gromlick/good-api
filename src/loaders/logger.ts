@@ -1,25 +1,23 @@
-import winston from "winston";
+import { createLogger, config, transports, format } from "winston";
 
-const logger = winston.createLogger({
+export default createLogger({
     level: "debug",
-    levels: winston.config.npm.levels,
+    levels: config.npm.levels,
     transports: [
-        new winston.transports.Console({
-            format: winston.format.combine(
-                winston.format.cli(),
-                winston.format.splat(),
+        new transports.Console({
+            format: format.combine(
+                format.cli(),
+                format.splat(),
             ),
         }),
     ],
 
-    format: winston.format.combine(
-        winston.format.timestamp({
+    format: format.combine(
+        format.timestamp({
             format: "YYYY-MM-DD HH:mm:ss"
         }),
-        winston.format.errors({ stack: true }),
-        winston.format.splat(),
-        winston.format.json(),
+        format.errors({ stack: true }),
+        format.splat(),
+        format.json(),
     ),
 });
-
-export default logger;
