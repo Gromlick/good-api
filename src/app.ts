@@ -9,10 +9,6 @@ async function start () {
 
     await loader({ app });
 
-    app.get("/", (req, res) => {
-        res.send("\nHello World!\n");
-    });
-
     app.listen(config.port, () => {
         logger.info(`
             ***********************************************
