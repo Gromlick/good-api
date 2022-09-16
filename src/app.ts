@@ -2,8 +2,7 @@ import "reflect-metadata";
 import config from "./config";
 import express from "express";
 import loader from "./loaders";
-// import logger from "./loaders/logger"
-import { Container } from 'typedi';
+import { Container, Service } from 'typedi';
 import { Logger } from 'winston';
 
 async function start () {

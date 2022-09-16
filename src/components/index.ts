@@ -1,12 +1,20 @@
+import { Service } from 'typedi';
 import { Router } from "express";
-import hello from "./hello";
+import HelloController from "./hello/route";
 
-const routes = () => {
-    const app = Router();
+@Service()
+class Components {
+    constructor (
+        private readonly hello: HelloController,
+    ) {}
 
-    hello.route(app);
+    routes() {
+        const app = Router();
 
-    return app;
+        this.hello.route(app);
+
+        return app;
+    }
 }
 
-export { routes }
+export default Components;

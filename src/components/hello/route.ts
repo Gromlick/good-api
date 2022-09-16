@@ -1,11 +1,29 @@
 import { Router } from "express";
+import { Service } from 'typedi';
 import mid from "@/middleware";
-const route = Router();
+import HelloService from './service';
 
-export default (app: Router) => {
-    app.use("/hello", route);
+@Service()
+class HelloController {
+    constructor (private readonly helloService: HelloService) {}
+    route (app: Router) {
+        const route = Router();
+    
+        app.use("/hello", route);
 
-    route.get("/", mid.logRequest, (req, res) => {
-        res.send("\nHello World!\n").status(200);
-    });
+        route.get("/", mid.logRequest, (req, res) => {
+            res.send(this.helloService.getMessage()).status(200);
+        });
+    }
 }
+
+export default HelloController;
+// export default (app: Router) => {
+//     const route = Router();
+    
+//     app.use("/hello", route);
+
+//     route.get("/", mid.logRequest, (req, res) => {
+//         res.send("\nHello World!\n").status(200);
+//     });
+// }
