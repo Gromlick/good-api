@@ -1,6 +1,6 @@
 import { createLogger, config, transports, format } from "winston";
 
-export default createLogger({
+const logger = createLogger({
     level: "debug",
     levels: config.npm.levels,
     transports: [
@@ -21,3 +21,5 @@ export default createLogger({
         format.json(),
     ),
 });
+
+export default logger;
