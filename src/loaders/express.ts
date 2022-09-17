@@ -1,6 +1,7 @@
 import express from "express";
 import Container from 'typedi';
-import Components from "@/components";
+// import Components from "@/components";
+import routes from '@/components';
 
 export default ({ app }) => {
 
@@ -16,8 +17,8 @@ export default ({ app }) => {
     app.use(express.json());
 
     // load in routes
-    const components: Components = Container.get(Components);
-    app.use("/", components.routes());
+    // const components: Components = Container.get(Components);
+    app.use("/", routes());
 
     // catch anything that wasn't found
     app.use((req, res, next) => {

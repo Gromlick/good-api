@@ -18,12 +18,3 @@ class HelloController {
 }
 
 export default HelloController;
-// export default (app: Router) => {
-//     const route = Router();
-    
-//     app.use("/hello", route);
-
-//     route.get("/", mid.logRequest, (req, res) => {
-//         res.send("\nHello World!\n").status(200);
-//     });
-// }
