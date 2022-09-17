@@ -1,15 +1,13 @@
 import { Service, Container } from 'typedi';
 import { Logger } from 'winston';
+import HelloData from './data';
 
 @Service()
 class HelloService {
-    constructor() {
-        const logger:Logger = Container.get('logger');
-        logger.info('well hello!');
-    }
+    constructor(private readonly helloData: HelloData) {}
 
     getMessage () {
-        return "\nHello World!\n";
+        return this.helloData.getMessage();
     }
 }
 
