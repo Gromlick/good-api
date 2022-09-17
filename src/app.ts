@@ -1,8 +1,8 @@
-import "reflect-metadata";
-import config from "./config";
-import express from "express";
-import loader from "./loaders";
-import { Container, Service } from 'typedi';
+import 'reflect-metadata';
+import config from './config';
+import express from 'express';
+import loader from './loaders';
+import { Container } from 'typedi';
 import { Logger } from 'winston';
 
 async function start () {

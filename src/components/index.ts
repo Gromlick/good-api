@@ -1,6 +1,6 @@
 import { Service, Container } from 'typedi';
-import { Router } from "express";
-import HelloController from "./hello/controller";
+import { Router } from 'express';
+import HelloController from './hello/controller';
 
 export default () => {
     const app = Router();

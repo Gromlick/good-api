@@ -1,29 +1,27 @@
-import express from "express";
+import express from 'express';
 import Container from 'typedi';
-// import Components from "@/components";
 import routes from '@/components';
 
 export default ({ app }) => {
 
     // health check
-    app.get("/status", (req, res) => {
+    app.get('/status', (req, res) => {
         res.status(200).end();
     });
 
     // we're gonna want that proxy traffic
-    app.enable("trust proxy");
+    app.enable('trust proxy');
 
     // transform body into json obj
     app.use(express.json());
 
     // load in routes
-    // const components: Components = Container.get(Components);
-    app.use("/", routes());
+    app.use('/', routes());
 
     // catch anything that wasn't found
     app.use((req, res, next) => {
-        const err = new Error("Not found");
-        err["status"] = 404;
+        const err = new Error('Not found');
+        err['status'] = 404;
         next(err);
     });
 

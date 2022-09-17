@@ -3,8 +3,8 @@ import { Logger } from 'winston';
 
 @Service()
 class HelloService {
-    constructor (private readonly logger: Logger) {
-        logger = Container.get('logger');
+    constructor() {
+        const logger:Logger = Container.get('logger');
         logger.info('well hello!');
     }
 
