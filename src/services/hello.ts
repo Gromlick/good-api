@@ -1,6 +1,6 @@
 import { Service, Container } from 'typedi';
 import { Logger } from 'winston';
-import HelloData from './data';
+import HelloData from '@/data/hello';
 
 @Service()
 class HelloService {

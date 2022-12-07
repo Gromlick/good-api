@@ -1,6 +1,6 @@
 import express from 'express';
 import Container from 'typedi';
-import routes from '@/components';
+import routes from '@/routes';
 
 export default ({ app }) => {
 

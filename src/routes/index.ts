@@ -1,6 +1,6 @@
 import { Service, Container } from 'typedi';
 import { Router } from 'express';
-import HelloController from './hello/controller';
+import HelloRoute from './hello';
 
 export default () => {
     const app = Router();
@@ -8,8 +8,8 @@ export default () => {
     // attach each component we want
 
     // attach hello component
-    const helloController = Container.get(HelloController);
-    helloController.route(app);
+    const helloRoute = Container.get(HelloRoute);
+    helloRoute.route(app);
 
     return app;
 }

@@ -3,11 +3,11 @@ import { Logger } from 'winston';
 
 @Service()
 class HelloData {
-	constructor() {}
+    constructor() {}
 
-	getMessage() {
-		return "\nHello Word\n";
-	}
+    getMessage() {
+        return "\nHello Word\n";
+    }
 }
 
 export default HelloData;

@@ -1,11 +1,12 @@
 import { Router } from 'express';
 import { Service } from 'typedi';
 import mid from '@/middleware';
-import HelloService from './service';
+import HelloService from '@/services/hello';
 
 @Service()
-class HelloController {
+class HelloRoute {
     constructor (private readonly helloService: HelloService) {}
+
     route (app: Router) {
         const route = Router();
         const body = this.helloService.getMessage();
@@ -17,7 +18,7 @@ class HelloController {
         app.use('/hello', route);
 
         route.get('/', mid.logRequest, (req, res) => {
-            res.send(body).status(200).set(headers);
+            res.set(headers).status(200).send(body);
         });
 
         route.head('/', mid.logRequest, (req, res) => {
@@ -26,4 +27,4 @@ class HelloController {
     }
 }
 
-export default HelloController;
+export default HelloRoute;
